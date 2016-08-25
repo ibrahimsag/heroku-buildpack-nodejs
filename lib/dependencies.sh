@@ -19,7 +19,7 @@ install_node_modules() {
       echo "Installing node modules (package.json)"
     fi
     echo "running npm install"
-    npm install --unsafe-perm --userconfig $build_dir/.npmrc 2>&1
+    npm install --unsafe-perm --userconfig $build_dir/.npmrc 2>&1 || true
     echo "done with npm install"
   else
     echo "Skipping (no package.json)"
