@@ -9,16 +9,18 @@ run_if_present() {
 
 install_node_modules() {
   local build_dir=${1:-}
-
+  echo "in install_node_modules"
   if [ -e $build_dir/package.json ]; then
     cd $build_dir
-
+    
     if [ -e $build_dir/npm-shrinkwrap.json ]; then
       echo "Installing node modules (package.json + shrinkwrap)"
     else
       echo "Installing node modules (package.json)"
     fi
+    echo "running npm install"
     npm install --unsafe-perm --userconfig $build_dir/.npmrc 2>&1
+    echo "done with npm install"
   else
     echo "Skipping (no package.json)"
   fi
