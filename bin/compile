@@ -129,10 +129,10 @@ build_dependencies() {
   fi
   run_if_present 'heroku-postbuild'
 }
-
+echo "naber1"
 header "Building dependencies"
 build_dependencies | output "$LOG_FILE"
-
+echo "naber2"
 cache_build() {
   local cache_directories=$(get_cache_directories)
 
@@ -149,10 +149,10 @@ cache_build() {
   fi
   save_signature
 }
-
+echo "naber3"
 header "Caching build"
 cache_build | output "$LOG_FILE"
-
+echo "naber4"
 summarize_build() {
   cd $BUILD_DIR
   (npm ls --depth=0 | tail -n +2 || true) 2>/dev/null
