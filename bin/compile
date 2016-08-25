@@ -120,14 +120,19 @@ header "Restoring cache"
 restore_cache | output "$LOG_FILE"
 
 build_dependencies() {
+echo "naber01"
   run_if_present 'heroku-prebuild'
   if $PREBUILD; then
+    echo "naber02"
     echo "Prebuild detected (node_modules already exists)"
     rebuild_node_modules "$BUILD_DIR"
   else
+    echo "naber03"
     install_node_modules "$BUILD_DIR"
   fi
+  echo "naber04"
   run_if_present 'heroku-postbuild'
+  echo "naber05"
 }
 echo "naber1"
 header "Building dependencies"
